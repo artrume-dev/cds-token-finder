@@ -1,0 +1,27 @@
+{
+  "name": "design-system-visualizer",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^0.452.0",
+    "react": "^18.3.1",
+    "react-d3-tree": "^3.6.6",
+    "react-dom": "^18.3.1",
+    "recharts": "^3.1.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.0"
+  }
+}
