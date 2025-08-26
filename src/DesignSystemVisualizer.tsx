@@ -303,7 +303,7 @@ const DesignSystemVisualizer = () => {
             "div",
             { className: "mb-8" },
             React.createElement("h1", { className: "text-4xl font-bold bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent mb-3" }, "Canon Design System"),
-            React.createElement("p", { className: "text-gray-700 mb-8 text-lg" }, "Variables Visualizer - Raw Tokens, Foundation Tokens, and Component Tokens"),
+            React.createElement("p", { className: "text-gray-700 mb-8 text-lg" }, "Variables Visualiser - Raw Tokens, Foundation Tokens, and Component Tokens"),
             
             // Stats
             React.createElement(
