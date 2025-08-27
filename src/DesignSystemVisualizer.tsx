@@ -285,78 +285,181 @@ const DesignSystemVisualizer = () => {
     );
   }
 
-  return React.createElement(
-    "div",
-    { className: "min-h-screen bg-gradient-to-br from-gray-50 to-blue-50" },
+  // Replace your return statement with this updated version:
+
+// Replace your return statement with this updated version:
+
+return React.createElement(
+  "div",
+  { className: "min-h-screen bg-gradient-to-br from-gray-50 to-blue-50" },
+
+  // Header Navigation - ADD THIS NEW SECTION
+  React.createElement(
+    "header",
+    { className: "sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm mb-8" },
     React.createElement(
       "div",
-      { className: "w-full min-h-screen mx-auto p-8" },
+      { className: "max-w-full mx-auto px-8 py-4" },
       React.createElement(
         "div",
-        { className: "grid grid-cols-1 lg:grid-cols-2 gap-8" },
+        { className: "flex items-center justify-between" },
         
-        // Left column: list
+        // Logo and Title Section - MOVED FROM BELOW
         React.createElement(
           "div",
-          null,
+          { className: "flex items-center gap-12" },
+          React.createElement("img", { 
+            className: "w-24 bg-white", 
+            src: "./src/images/cds-logo.png", 
+            alt: "Canon Logo" 
+          }),
           React.createElement(
             "div",
-            { className: "mb-8" },
-            React.createElement("h1", { className: "text-4xl font-bold bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent mb-3" }, "Canon Design System"),
-            React.createElement("p", { className: "text-gray-700 mb-8 text-lg" }, "Variables Visualiser - Raw Tokens, Foundation Tokens, and Component Tokens"),
-            
-            // Stats
+            { className: "flex flex-col" },
+            React.createElement("h1", { 
+              className: "visually-hidden hidden text-4xl font-bold bg-gradient-to-r from-red-800 to-blue-800 bg-clip-text text-transparent" 
+            }, "Design System"),
+            React.createElement("p", { 
+              className: "text-4xl font-bold bg-gradient-to-r from-red-800 to-blue-800 bg-clip-text text-transparent" 
+            }, "Design Tokens Visualiser"),
+            React.createElement("p", { 
+              className: "text-xs text-gray-600 font-medium" 
+            }, "Version 1.0.0 - Alpha")
+          )
+        ),
+
+  // Stats Section - MOVED BELOW HEADER (Full width, hidden on mobile)
+  React.createElement(
+    "div",
+    { className: "hidden lg:block bg-white" },
+    React.createElement(
+      "div",
+      { className: "max-w-full mx-auto px-8 py-6" },
+      React.createElement(
+        "div",
+        { className: "grid grid-cols-2 md:grid-cols-4 gap-6" },
+        React.createElement(
+          "div",
+          { className: "flex items-center gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300" },
+          React.createElement(Eye, { className: "w-8 h-8 text-gray-600" }),
+          React.createElement(
+            "div",
+            { className: "flex flex-col" },
+            React.createElement("span", { className: "font-bold text-2xl text-gray-900" }, stats.total),
+            React.createElement("span", { className: "text-sm text-gray-600" }, "Total Variables")
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "flex items-center gap-3 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-all duration-300" },
+          React.createElement(Palette, { className: "w-8 h-8 text-blue-600" }),
+          React.createElement(
+            "div",
+            { className: "flex flex-col" },
+            React.createElement("span", { className: "font-bold text-2xl text-gray-900" }, stats.raw),
+            React.createElement("span", { className: "text-sm text-gray-600" }, "Raw Tokens")
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "flex items-center gap-3 p-4 bg-emerald-50 rounded-xl hover:bg-emerald-100 transition-all duration-300" },
+          React.createElement(Type, { className: "w-8 h-8 text-emerald-600" }),
+          React.createElement(
+            "div",
+            { className: "flex flex-col" },
+            React.createElement("span", { className: "font-bold text-2xl text-gray-900" }, stats.foundation),
+            React.createElement("span", { className: "text-sm text-gray-600" }, "Foundation Tokens")
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "flex items-center gap-3 p-4 bg-violet-50 rounded-xl hover:bg-violet-100 transition-all duration-300" },
+          React.createElement(Layers, { className: "w-8 h-8 text-violet-600" }),
+          React.createElement(
+            "div",
+            { className: "flex flex-col" },
+            React.createElement("span", { className: "font-bold text-2xl text-gray-900" }, stats.component),
+            React.createElement("span", { className: "text-sm text-gray-600" }, "Component Tokens")
+          )
+        )
+      )
+    )
+  ),
+
+
+      )
+    )
+  ),
+
+  // Main Content - UPDATED (removed header elements)
+  React.createElement(
+    "div",
+    { className: "w-full min-h-screen mx-auto p-8 pt-4" }, // Note: reduced top padding
+    React.createElement(
+      "div",
+      { className: "grid grid-cols-1 lg:grid-cols-2 gap-8" },
+      
+      // Left column: list - REMOVE the logo, title, and description from here
+      React.createElement(
+        "div",
+        { className: "mb-8" }, // Removed bg-white class and null parameter
+        
+        // Mobile Stats (visible only on small screens)
+        React.createElement(
+          "div",
+          { className: "lg:hidden grid grid-cols-2 gap-4 mb-6" },
+          React.createElement(
+            "div",
+            { className: "bg-white p-4 rounded-xl shadow-sm border-2 border-gray-100" },
             React.createElement(
               "div",
-              { className: "grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" },
-              React.createElement(
-                "div",
-                { className: "bg-white p-5 rounded-xl shadow-sm border-2 border-gray-100 hover:border-gray-200 transition-all duration-700" },
-                React.createElement(
-                  "div",
-                  { className: "flex items-center gap-3" },
-                  React.createElement(Eye, { className: "w-6 h-6 text-gray-600" }),
-                  React.createElement("span", { className: "font-bold text-xl text-gray-900" }, stats.total)
-                ),
-                React.createElement("p", { className: "text-sm text-gray-600 mt-1" }, "Total Variables")
-              ),
-              React.createElement(
-                "div",
-                { className: "bg-white p-5 rounded-xl shadow-sm border-2 border-blue-100 hover:border-blue-200 transition-all duration-700" },
-                React.createElement(
-                  "div",
-                  { className: "flex items-center gap-3" },
-                  React.createElement(Palette, { className: "w-6 h-6 text-blue-600" }),
-                  React.createElement("span", { className: "font-bold text-xl text-gray-900" }, stats.raw)
-                ),
-                React.createElement("p", { className: "text-sm text-gray-600 mt-1" }, "Raw Tokens")
-              ),
-              React.createElement(
-                "div",
-                { className: "bg-white p-5 rounded-xl shadow-sm border-2 border-emerald-100 hover:border-emerald-200 transition-all duration-700" },
-                React.createElement(
-                  "div",
-                  { className: "flex items-center gap-3" },
-                  React.createElement(Type, { className: "w-6 h-6 text-emerald-600" }),
-                  React.createElement("span", { className: "font-bold text-xl text-gray-900" }, stats.foundation)
-                ),
-                React.createElement("p", { className: "text-sm text-gray-600 mt-1" }, "Foundation Tokens")
-              ),
-              React.createElement(
-                "div",
-                { className: "bg-white p-5 rounded-xl shadow-sm border-2 border-violet-100 hover:border-violet-200 transition-all duration-700" },
-                React.createElement(
-                  "div",
-                  { className: "flex items-center gap-3" },
-                  React.createElement(Layers, { className: "w-6 h-6 text-violet-600" }),
-                  React.createElement("span", { className: "font-bold text-xl text-gray-900" }, stats.component)
-                ),
-                React.createElement("p", { className: "text-sm text-gray-600 mt-1" }, "Component Tokens")
-              )
-            )
+              { className: "flex items-center gap-2" },
+              React.createElement(Eye, { className: "w-5 h-5 text-gray-600" }),
+              React.createElement("span", { className: "font-bold text-lg text-gray-900" }, stats.total)
+            ),
+            React.createElement("p", { className: "text-xs text-gray-600 mt-1" }, "Total Variables")
           ),
+          React.createElement(
+            "div",
+            { className: "bg-white p-4 rounded-xl shadow-sm border-2 border-blue-100" },
+            React.createElement(
+              "div",
+              { className: "flex items-center gap-2" },
+              React.createElement(Palette, { className: "w-5 h-5 text-blue-600" }),
+              React.createElement("span", { className: "font-bold text-lg text-gray-900" }, stats.raw)
+            ),
+            React.createElement("p", { className: "text-xs text-gray-600 mt-1" }, "Raw Tokens")
+          ),
+          React.createElement(
+            "div",
+            { className: "bg-white p-4 rounded-xl shadow-sm border-2 border-emerald-100" },
+            React.createElement(
+              "div",
+              { className: "flex items-center gap-2" },
+              React.createElement(Type, { className: "w-5 h-5 text-emerald-600" }),
+              React.createElement("span", { className: "font-bold text-lg text-gray-900" }, stats.foundation)
+            ),
+            React.createElement("p", { className: "text-xs text-gray-600 mt-1" }, "Foundation Tokens")
+          ),
+          React.createElement(
+            "div",
+            { className: "bg-white p-4 rounded-xl shadow-sm border-2 border-violet-100" },
+            React.createElement(
+              "div",
+              { className: "flex items-center gap-2" },
+              React.createElement(Layers, { className: "w-5 h-5 text-violet-600" }),
+              React.createElement("span", { className: "font-bold text-lg text-gray-900" }, stats.component)
+            ),
+            React.createElement("p", { className: "text-xs text-gray-600 mt-1" }, "Component Tokens")
+          )
+        ),
 
-          // Filters
+        // Continue with your filters and rest of the content...
+     
+
+        // Continue with your filters and rest of the content...
+      
+        // Filters
           React.createElement(
             "div",
             { className: "bg-white p-6 rounded-xl shadow-sm border-2 border-gray-100 mb-6" },
@@ -497,7 +600,7 @@ const DesignSystemVisualizer = () => {
                       "div",
                       { className: "flex items-center gap-4" },
                       getColorPreview(variable) && React.createElement("div", {
-                        className: `w-10 h-10 rounded-lg border-2 transition-all duration-700 ${
+                        className: `w-10 h-10 rounded-lg border-2 border-gray-200 transition-all duration-700 ${
                           isHovered ? "border-gray-400 transform scale-110" : "border-gray-300"
                         }`,
                         style: { backgroundColor: getColorPreview(variable) }
@@ -522,124 +625,114 @@ const DesignSystemVisualizer = () => {
           )
         ),
 
-        // Right column: Dependency Map
+// Right column: Token Dependencies
+React.createElement(
+  "div",
+  { className: "sticky top-0 h-screen overflow-y-auto bg-white p-8 rounded-lg border border-gray-100" },
+
+  // H2 Title (replaces button tab)
+  React.createElement("h2", { 
+    className: "text-2xl font-bold text-gray-900 mb-6 pb-4 border-b-2 border-gray-100 text-center" 
+  }, "Token Dependencies"),
+
+  React.createElement(
+    "div",
+    { className: "bg-white min-h-screen p-6 rounded-xl shadow-sm" },
+    selectedToken ? React.createElement(
+      "div",
+      null,
+      React.createElement(
+        "div",
+        { className: "mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200" },
+        React.createElement("h3", { className: "text-2xl font-bold mb-3 text-gray-900" }, "Token Relationships: " + selectedToken.name),
         React.createElement(
           "div",
-          { className: "sticky top-0 h-screen overflow-y-auto" }, // Sticky + full height + scrollable
-          
+          { className: "flex items-center gap-3 mb-4 flex-wrap" },
+          renderCollectionBadge(selectedToken.collectionType),
+          React.createElement(
+            "span",
+            { className: `inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold ${getTypeColor(selectedToken.type)}` },
+            selectedToken.type
+          ),
+          isLeafNode(selectedToken) && React.createElement(
+            "span",
+            { className: "text-xs font-semibold px-3 py-1.5 rounded-full text-amber-800 bg-amber-100" },
+            "🍃 Leaf Node"
+          ),
+          React.createElement(
+            "span",
+            { className: "text-sm text-gray-700 bg-white px-3 py-2 rounded-lg font-mono shadow-sm" },
+            "Value: " + formatValue(selectedToken)
+          )
+        )
+      ),
+
+      React.createElement(
+        "div",
+        { className: "space-y-8" },
+        selectedToken.aliasOf && React.createElement(
+          "div",
+          null,
+          React.createElement("h4", { className: "text-xl font-bold mb-4 text-gray-800 flex items-center gap-2" }, 
+            React.createElement(GitBranch, { className: "w-5 h-5 text-blue-600" }),
+            "References:"
+          ),
           React.createElement(
             "div",
-            { className: "flex gap-2 border-b-2 border-gray-200 mb-6" },
+            { className: "bg-blue-50 p-4 rounded-xl border-2 border-blue-200" },
             React.createElement(
-              "button",
-              {
-                onClick: () => handleTabChange("map"),
-                className: activeTab === "map"
-                  ? "px-6 py-3 text-sm font-bold rounded-t-xl bg-blue-600 text-white"
-                  : "px-6 py-3 text-sm font-semibold rounded-t-xl bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-800 transition-all duration-700"
-              },
-              "Dependency Map"
-            )
-          ),
-
-          activeTab === "map" && React.createElement(
-            "div",
-            { className: "bg-white min-h-screen p-6 rounded-xl shadow-sm border-2 border-gray-100" },
-            selectedToken ? React.createElement(
               "div",
-              null,
+              { className: "flex items-center gap-3" },
               React.createElement(
-                "div",
-                { className: "mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200" },
-                React.createElement("h2", { className: "text-2xl font-bold mb-3 text-gray-900" }, "Token Relationships: " + selectedToken.name),
-                React.createElement(
-                  "div",
-                  { className: "flex items-center gap-3 mb-4 flex-wrap" },
-                  renderCollectionBadge(selectedToken.collectionType),
-                  React.createElement(
-                    "span",
-                    { className: `inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold ${getTypeColor(selectedToken.type)}` },
-                    selectedToken.type
-                  ),
-                  isLeafNode(selectedToken) && React.createElement(
-                    "span",
-                    { className: "text-xs font-semibold px-3 py-1.5 rounded-full text-amber-800 bg-amber-100" },
-                    "🍃 Leaf Node"
-                  ),
-                  React.createElement(
-                    "span",
-                    { className: "text-sm text-gray-700 bg-white px-3 py-2 rounded-lg font-mono shadow-sm" },
-                    "Value: " + formatValue(selectedToken)
-                  )
-                )
-              ),
-
-              React.createElement(
-                "div",
-                { className: "space-y-8" },
-                selectedToken.aliasOf && React.createElement(
-                  "div",
-                  null,
-                  React.createElement("h3", { className: "text-xl font-bold mb-4 text-gray-800 flex items-center gap-2" }, 
-                    React.createElement(GitBranch, { className: "w-5 h-5 text-blue-600" }),
-                    "References:"
-                  ),
-                  React.createElement(
-                    "div",
-                    { className: "bg-blue-50 p-4 rounded-xl border-2 border-blue-200" },
-                    React.createElement(
-                      "div",
-                      { className: "flex items-center gap-3" },
-                      React.createElement(
-                        "span",
-                        { className: "text-blue-800 font-medium" },
-                        "This token references: ",
-                        React.createElement("code", { className: "font-mono bg-blue-100 px-2 py-1 rounded text-blue-900" }, selectedToken.aliasOf)
-                      )
-                    )
-                  )
-                ),
-
-                React.createElement(
-                  "div",
-                  null,
-                  React.createElement(
-                    "h3",
-                    { className: "text-xl font-bold mb-4 text-gray-800 flex items-center gap-2" },
-                    React.createElement(Layers, { className: "w-5 h-5 text-gray-600" }),
-                    "Used by (" + findTokenDependencies(selectedToken.name).length + " tokens):"
-                  ),
-                  React.createElement(
-                    "div",
-                    { className: "max-h-100 overflow-y-auto pr-2" },
-                    findTokenDependencies(selectedToken.name).length > 0 
-                      ? renderDependencyNode(selectedToken, 0, (token) => {
-                          console.log("Dependency node clicked:", token.name);
-                          setSelectedToken(token);
-                        })
-                      : React.createElement(
-                          "div",
-                          { className: "text-center py-12 text-gray-500" },
-                          React.createElement(GitBranch, { className: "w-12 h-12 mx-auto mb-4 opacity-30" }),
-                          React.createElement("p", { className: "text-lg font-medium mb-2" }, "No tokens reference this variable"),
-                          React.createElement("p", { className: "text-sm" }, "This appears to be a leaf node in the design system"),
-                          React.createElement("div", { className: "mt-4 text-4xl" }, "🍃")
-                        )
-                  )
-                )
+                "span",
+                { className: "text-blue-800 font-medium" },
+                "This token references: ",
+                React.createElement("code", { className: "font-mono bg-blue-100 px-2 py-1 rounded text-blue-900" }, selectedToken.aliasOf)
               )
-            ) : React.createElement(
-              "div",
-              { className: "text-center py-16" },
-              React.createElement(GitBranch, { className: "w-16 h-16 text-gray-300 mx-auto mb-6" }),
-              React.createElement("h3", { className: "text-xl font-bold text-gray-900 mb-3" }, "Select a Token"),
-              React.createElement("p", { className: "text-gray-600" }, "Click on any token from the list to view its relationships and dependencies.")
             )
+          )
+        ),
+
+        React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "h4",
+            { className: "text-xl font-bold mb-4 text-gray-800 flex items-center gap-2" },
+            React.createElement(Layers, { className: "w-5 h-5 text-gray-600" }),
+            "Used by (" + findTokenDependencies(selectedToken.name).length + " tokens):"
+          ),
+          React.createElement(
+            "div",
+            { className: "max-h-100 overflow-y-auto pr-2" },
+            findTokenDependencies(selectedToken.name).length > 0 
+              ? renderDependencyNode(selectedToken, 0, (token) => {
+                  console.log("Dependency node clicked:", token.name);
+                  setSelectedToken(token);
+                })
+              : React.createElement(
+                  "div",
+                  { className: "text-center py-12 text-gray-500" },
+                  React.createElement(GitBranch, { className: "w-12 h-12 mx-auto mb-4 opacity-30" }),
+                  React.createElement("p", { className: "text-lg font-medium mb-2" }, "No tokens reference this variable"),
+                  React.createElement("p", { className: "text-sm" }, "This appears to be a leaf node in the design system"),
+                  React.createElement("div", { className: "mt-4 text-4xl" }, "🍃")
+                )
           )
         )
       )
+    ) : React.createElement(
+      "div",
+      { className: "text-center py-16" },
+      React.createElement(GitBranch, { className: "w-16 h-16 text-gray-300 mx-auto mb-6" }),
+      React.createElement("h3", { className: "text-xl font-bold text-gray-900 mb-3" }, "Select a Token"),
+      React.createElement("p", { className: "text-gray-600 text-lg" }, "👈 Click on any token from the list to view its relationships and dependencies.")
     )
-  );
+  )
+)
+    )
+  )
+);
 };
 
 export default DesignSystemVisualizer;
