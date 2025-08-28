@@ -287,16 +287,14 @@ const DesignSystemVisualizer = () => {
 
   // Replace your return statement with this updated version:
 
-// Replace your return statement with this updated version:
-
 return React.createElement(
   "div",
-  { className: "min-h-screen bg-gradient-to-br from-gray-50 to-blue-50" },
+  { className: "min-h-screen bg-gray-100" },
 
   // Header Navigation - ADD THIS NEW SECTION
   React.createElement(
     "header",
-    { className: "sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm mb-8" },
+    { className: "sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm" },
     React.createElement(
       "div",
       { className: "max-w-full mx-auto px-8 py-4" },
@@ -394,7 +392,7 @@ return React.createElement(
   // Main Content - UPDATED (removed header elements)
   React.createElement(
     "div",
-    { className: "w-full min-h-screen mx-auto p-8 pt-4" }, // Note: reduced top padding
+    { className: "w-full min-h-screen mx-auto p-8" }, // Note: reduced top padding
     React.createElement(
       "div",
       { className: "grid grid-cols-1 lg:grid-cols-2 gap-8" },
@@ -455,9 +453,7 @@ return React.createElement(
         ),
 
         // Continue with your filters and rest of the content...
-     
-
-        // Continue with your filters and rest of the content...
+    
       
         // Filters
           React.createElement(
