@@ -308,7 +308,7 @@ return React.createElement(
           { className: "flex items-center gap-12" },
           React.createElement("img", { 
             className: "w-24 bg-white", 
-            src: "./src/images/cds-logo.png", 
+            src: "./src/images/cds-logo.gif", 
             alt: "Canon Logo" 
           }),
           React.createElement(
